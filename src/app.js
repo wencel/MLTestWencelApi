@@ -4,7 +4,7 @@ const itemsRouter = require('./routers/item');
 
 const app = express();
 
-const allowedOrigins = ['http://localhost:3001', 'http://192.168.1.138:3001'];
+const allowedOrigins = ['http://localhost:3000', 'http://192.168.1.138:3000'];
 
 //Use the CORS library to allow calls from the app URL
 app.use(

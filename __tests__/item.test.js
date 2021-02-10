@@ -16,44 +16,67 @@ describe('WHEN trying to get a list of items', () => {
       .expect(200);
 
     expectedResponse = {
-      author: { name: 'Wencel', lastname: 'Santos' },
-      categories: ['MLA438566'],
+      author: {
+        name: 'Wencel',
+        lastname: 'Santos',
+      },
+      categories: ['Consolas y Videojuegos', 'Consolas'],
       items: [
         {
-          id: 'MLA880143053',
+          id: 'MLA906703376',
           title: 'Nintendo Switch 32gb Standard Rojo Neón, Azul Neón Y Negro',
-          price: { currency: 'ARS', amount: 75999, decimals: 0 },
+          price: {
+            currency: 'ARS',
+            amount: 59300,
+            decimals: '00',
+          },
           picture:
             'http://http2.mlstatic.com/D_883371-MLA32731749246_112019-I.jpg',
           condition: 'new',
           free_shipping: true,
+          state: 'Buenos Aires',
         },
         {
           id: 'MLA903591629',
           title: 'Nintendo Wii 512mb Standard Blanco',
-          price: { currency: 'ARS', amount: 24990, decimals: 0 },
+          price: {
+            currency: 'ARS',
+            amount: 24990,
+            decimals: '00',
+          },
           picture:
             'http://http2.mlstatic.com/D_910960-MLA32731749007_112019-I.jpg',
           condition: 'new',
           free_shipping: true,
+          state: 'Capital Federal',
         },
         {
           id: 'MLA906664474',
           title: 'Nintendo New 3ds Xl Standard Negro Metálico',
-          price: { currency: 'ARS', amount: 49999, decimals: 0 },
+          price: {
+            currency: 'ARS',
+            amount: 35300,
+            decimals: '00',
+          },
           picture:
             'http://http2.mlstatic.com/D_890060-MLA32736005821_112019-I.jpg',
           condition: 'new',
           free_shipping: true,
+          state: 'Capital Federal',
         },
         {
           id: 'MLA839795990',
           title: 'Nintendo Family Computer Blanco Y Rojo',
-          price: { currency: 'ARS', amount: 7400, decimals: 0 },
+          price: {
+            currency: 'ARS',
+            amount: 7400,
+            decimals: '00',
+          },
           picture:
             'http://http2.mlstatic.com/D_857844-MLA32731490398_112019-I.jpg',
           condition: 'new',
           free_shipping: true,
+          state: 'Capital Federal',
         },
       ],
     };
@@ -110,7 +133,7 @@ describe('WHEN trying to get a list of items', () => {
         price: {
           currency: 'ARS',
           amount: 29999,
-          decimals: 0,
+          decimals: '00',
         },
         picture:
           'http://http2.mlstatic.com/D_690280-MLA44569794262_012021-I.jpg',

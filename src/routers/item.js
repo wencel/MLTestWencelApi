@@ -24,25 +24,33 @@ itemsRouter.get('/', async (req, res) => {
       `https://api.mercadolibre.com/sites/MLA/search?q=${apiQuery}`
     );
     const categories =
-      data.available_filters.find(filter => filter.id === 'category')?.values ||
-      data.filters.find(filter => filter.id === 'category')?.values;
+      data.filters
+        .find(filter => filter.id === 'category')
+        ?.values[0].path_from_root.map(item => item.name) ||
+      data.available_filters
+        .find(filter => filter.id === 'category')
+        ?.values.reduce((prev, next) =>
+          prev.results > next.results ? prev : next
+        );
+
     const response = {
       author: {
         name: 'Wencel',
         lastname: 'Santos',
       },
-      categories: categories.map(category => category.id),
+      categories: categories.name ? [categories.name] : categories,
       items: data.results.slice(0, 4).map(item => ({
         id: item.id,
         title: item.title,
         price: {
           currency: item.prices.prices[0].currency_id,
           amount: item.prices.prices[0].amount,
-          decimals: 0,
+          decimals: '00',
         },
         picture: item.thumbnail,
         condition: item.condition,
         free_shipping: item.shipping.free_shipping,
+        state: item.address.state_name,
       })),
     };
     res.status(200).send(response);
@@ -73,7 +81,7 @@ itemsRouter.get('/:id', async (req, res) => {
         price: {
           currency: item.currency_id,
           amount: item.price,
-          decimals: 0,
+          decimals: '00',
         },
         picture: item.thumbnail,
         condition: item.condition,
