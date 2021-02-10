@@ -108,7 +108,7 @@ describe('WHEN trying to get a list of items', () => {
   });
 });
 
-describe('WHEN trying to get a list of items', () => {
+describe('WHEN trying to get an item with a given ID', () => {
   it('Should get an item given an ID', async () => {
     axios.get.mockImplementationOnce(() =>
       Promise.resolve({ data: mockData.itemData })
